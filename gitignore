@@ -1,0 +1,32 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+build/
+dist/
+
+# Virtual environment (recreated with `uv sync`)
+.venv/
+
+# Tool caches
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+
+# Downloaded models (see README for the download command)
+models/*.task
+
+# Generated output
+*_landmarks.jpg
+*_landmarks.jpeg
+*_landmarks.png
+outputs/
+
+# Recordings
+*.mov
+*.mp4
+
+# Editor and OS files
+.vscode/
+.idea/
+.DS_Store
