@@ -66,7 +66,7 @@ with vision.HandLandmarker.create_from_options(options) as landmarker:
 
 ## Results
 
-| Open palm | Pointing | Two hands |
+| Open palm | Posing | Three hands |
 | --- | --- | --- |
 | ![Open palm](results/result-1.jpg) | ![Posing](results/result-3.jpg) | ![Three hands](results/result-2.jpg) |
 
@@ -103,21 +103,42 @@ with vision.HandLandmarker.create_from_options(options) as landmarker:
 
 ## Run
 
-From the project folder:
+From the project folder (runs in default mode):
 
 ```bash
 uv run python src/main.py
 ```
+## Usage
 
-On macOS, allow camera access for Terminal (or VS Code) when asked. Press `q` in the video window to quit.
+Run from the project folder. Pick one mode:
+
+| Mode | Command | What it does |
+| --- | --- | --- |
+| Images (default) | `uv run python src/main.py` or  `uv run python src/main.py --image` | Detects hands in every image in `samples/` |
+| Video | `uv run python src/main.py --video` | Processes `samples/sample.mp4` |
+| Live | `uv run python src/main.py --live` | Tracks hands from the webcam |
+
+- Press `q` to stop the video or webcam window, or any key to close an image window.
+- On macOS, allow camera access for Terminal (or VS Code) when asked.
+- Run `uv run python src/main.py --help` to see all options.
 
 ## Project structure
 
 ```text
 hand-recognizer/
 ├── models/            # hand_landmarker.task (downloaded, not in Git)
+├── results/           # stock image results
+├── samples/           # stock images/videos
 ├── src/
 │   └── main.py        # detection and drawing
 ├── pyproject.toml     # dependencies
 └── uv.lock            # exact dependency versions
 ```
+## Sample media credits
+
+The images and videos in `samples/` are either recorded by the author or free stock media.
+
+| File | Source |
+| --- | --- |
+|`sample/*.jpg` | Images from [MotionArray](https://motionarray.com/stock-video/?q=hands)
+| `samples/sample_video.mp4` | Video by [cottonbro studio](https://www.pexels.com/video/a-footage-of-moving-hands-6752666/) on Pexels |
